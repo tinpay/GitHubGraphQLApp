@@ -6,8 +6,11 @@
 //
 import Foundation
 import GitHubSchema
+protocol GitHubUserUseCaseProtocol {
+    func fetch() async throws -> GetUserQuery.Data.User
+}
 
-class GitHubUserUseCase {
+class GitHubUserUseCase: GitHubUserUseCaseProtocol {
     static let shared = GitHubUserUseCase()
 
     func fetch() async throws -> GetUserQuery.Data.User {

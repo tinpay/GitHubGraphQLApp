@@ -7,7 +7,11 @@
 import Foundation
 import GitHubSchema
 
-class GitHubViewerUseCase {
+protocol GitHubViewerUseCaseProtocol {
+    func fetch() async throws -> GitHubViewer
+}
+
+class GitHubViewerUseCase: GitHubViewerUseCaseProtocol {
     static let shared = GitHubViewerUseCase()
 
     func fetch() async throws -> GitHubViewer {
