@@ -10,6 +10,10 @@ import SwiftUI
 import GitHubSchema
 
 struct Home: ReducerProtocol {
+    let gitHubUserUseCase: GitHubUserUseCaseProtocol
+    let gitHubViewerUseCase: GitHubViewerUseCaseProtocol
+
+
     struct State: Equatable {
         var name: String = ""
         var avatarUrl: URL?
@@ -27,8 +31,8 @@ struct Home: ReducerProtocol {
         switch action {
         case .initializeViewer:
             return .task {
-                let gitHubViewer = try? await GitHubViewerUseCase.shared.fetch()
-                let user = try? await GitHubUserUseCase.shared.fetch()
+                let gitHubViewer = try? await self.gitHubViewerUseCase.fetch()
+                let user = try? await self.gitHubUserUseCase.fetch()
                 return .setViewerAndRepository(gitHubViewer: gitHubViewer, user: user)
             }.cancellable(id: DelayID.self)
         case .setViewerAndRepository(let gitHubViewer, let user):
@@ -84,7 +88,7 @@ struct ContentView_Previews: PreviewProvider {
         HomeView(store:
                     Store(
                         initialState: Home.State(),
-                        reducer: Home()
+                        reducer: Home(gitHubUserUseCase: GitHubUserUseCase.shared, gitHubViewerUseCase: GitHubViewerUseCase.shared)
                     )
         )
     }
