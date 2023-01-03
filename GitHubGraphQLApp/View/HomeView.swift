@@ -88,8 +88,20 @@ struct ContentView_Previews: PreviewProvider {
         HomeView(store:
                     Store(
                         initialState: Home.State(),
-                        reducer: Home(gitHubUserUseCase: GitHubUserUseCase.shared, gitHubViewerUseCase: GitHubViewerUseCase.shared)
+                        reducer: Home(gitHubUserUseCase: GitHubUserUseCase.shared, gitHubViewerUseCase: GitHubViewerUseCaseMock())
                     )
         )
     }
+    
+    private class GitHubViewerUseCaseMock: GitHubViewerUseCaseProtocol {
+        func fetch() async throws -> GitHubViewer {
+            return GitHubViewer(id: "",
+                                name: "Preview_tinpay",
+                                email: "demo@tinpay.com",
+                                avatarUrl: "",
+                                company: "")
+            
+        }
+    }
+    
 }
