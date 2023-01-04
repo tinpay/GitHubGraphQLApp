@@ -8,19 +8,19 @@ import Foundation
 import GitHubSchema
 
 protocol GitHubViewerUseCaseProtocol {
-    func fetch() async throws -> GitHubViewer
+    func fetch() async throws -> Viewer
 }
 
 class GitHubViewerUseCase: GitHubViewerUseCaseProtocol {
     static let shared = GitHubViewerUseCase()
 
-    func fetch() async throws -> GitHubViewer {
+    func fetch() async throws -> Viewer {
         try await withCheckedThrowingContinuation { continuation in
             API.shared.apollo.fetch(query: ShowViewerQuery()) { result in
                 switch result {
                 case.success(let result):
                     if let viewer = result.data?.viewer {
-                        let githubViewer =  GitHubViewer(id: viewer.id,
+                        let githubViewer =  Viewer(id: viewer.id,
                                       name: viewer.name,
                                       email: viewer.email,
                                       avatarUrl: viewer.avatarUrl,

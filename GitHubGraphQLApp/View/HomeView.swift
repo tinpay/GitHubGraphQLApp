@@ -17,12 +17,12 @@ struct Home: ReducerProtocol {
     struct State: Equatable {
         var name: String = ""
         var avatarUrl: URL?
-        var user: GetUserQuery.Data.User?
+        var user: User?
     }
     
     enum Action: Equatable {
         case initializeViewer
-        case setViewerAndRepository(gitHubViewer: GitHubViewer?, user: GetUserQuery.Data.User?)
+        case setViewerAndRepository(gitHubViewer: Viewer?, user: User?)
     }
     
     private enum DelayID {}
@@ -68,8 +68,8 @@ struct HomeView: View {
                 List {
                     if let user = viewStore.user,
                        let repositories = user.repositories {
-                        ForEach(repositories.nodes ?? [], id: \.self) { repository in
-                            Text(repository?.name ?? "")
+                        ForEach(repositories , id: \.self) { repository in
+                            Text(repository.name )
                         }
                     }
                 }
@@ -88,14 +88,14 @@ struct ContentView_Previews: PreviewProvider {
         HomeView(store:
                     Store(
                         initialState: Home.State(),
-                        reducer: Home(gitHubUserUseCase: GitHubUserUseCase.shared, gitHubViewerUseCase: GitHubViewerUseCaseMock())
+                        reducer: Home(gitHubUserUseCase: GitHubUserUseCaseMock(), gitHubViewerUseCase: GitHubViewerUseCaseMock())
                     )
         )
     }
     
     private class GitHubViewerUseCaseMock: GitHubViewerUseCaseProtocol {
-        func fetch() async throws -> GitHubViewer {
-            return GitHubViewer(id: "",
+        func fetch() async throws -> Viewer {
+            return Viewer(id: "",
                                 name: "Preview_tinpay",
                                 email: "demo@tinpay.com",
                                 avatarUrl: "",
@@ -104,4 +104,13 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
     
+    private class GitHubUserUseCaseMock: GitHubUserUseCaseProtocol {
+        func fetch() async throws -> User {
+            return User(name: "test",
+                        repositories: [
+                            Repository(name: "sample1"),
+                            Repository(name: "sample2")
+                            ])
+        }
+    }
 }
