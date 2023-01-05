@@ -15,6 +15,7 @@ class GitHubUserUseCase: GitHubUserUseCaseProtocol {
 
     func fetch() async throws -> User {
         try await withCheckedThrowingContinuation { continuation in
+            print("UserUseCase fetch")
             API.shared.apollo.fetch(query: GetUserQuery()) { result in
                 switch result {
                 case.success(let result):

@@ -21,7 +21,8 @@ struct Home: ReducerProtocol {
     }
     
     enum Action: Equatable {
-        case initializeViewer
+        case initializeAsync
+        case initializeSync
         case setViewerAndRepository(gitHubViewer: Viewer?, user: User?)
     }
     
@@ -29,10 +30,20 @@ struct Home: ReducerProtocol {
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
-        case .initializeViewer:
+        case .initializeAsync:
             return .task {
+                print("start")
+                async let gitHubViewer = try? await self.gitHubViewerUseCase.fetch()
+                async let user = try? await self.gitHubUserUseCase.fetch()
+                print("end")
+                return await .setViewerAndRepository(gitHubViewer: gitHubViewer, user: user)
+            }.cancellable(id: DelayID.self)
+        case .initializeSync:
+            return .task {
+                print("start")
                 let gitHubViewer = try? await self.gitHubViewerUseCase.fetch()
                 let user = try? await self.gitHubUserUseCase.fetch()
+                print("end")
                 return .setViewerAndRepository(gitHubViewer: gitHubViewer, user: user)
             }.cancellable(id: DelayID.self)
         case .setViewerAndRepository(let gitHubViewer, let user):
@@ -76,7 +87,8 @@ struct HomeView: View {
             }
             .onAppear {
                 Task {
-                    viewStore.send(.initializeViewer)
+                    viewStore.send(.initializeAsync)    // asynchronized
+//                    viewStore.send(.initializeSync)     // synchronized
                 }
             }
         }

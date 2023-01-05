@@ -16,6 +16,7 @@ class GitHubViewerUseCase: GitHubViewerUseCaseProtocol {
 
     func fetch() async throws -> Viewer {
         try await withCheckedThrowingContinuation { continuation in
+            print("ViewerUseCase fetch")
             API.shared.apollo.fetch(query: ShowViewerQuery()) { result in
                 switch result {
                 case.success(let result):
