@@ -7,12 +7,12 @@
 import Foundation
 import GitHubSchema
 
-protocol GitHubViewerUseCaseProtocol {
+protocol ViewerUseCaseProtocol {
     func fetch() async throws -> Viewer
 }
 
-class GitHubViewerUseCase: GitHubViewerUseCaseProtocol {
-    static let shared = GitHubViewerUseCase()
+class ViewerUseCase: ViewerUseCaseProtocol {
+    static let shared = ViewerUseCase()
 
     func fetch() async throws -> Viewer {
         try await withCheckedThrowingContinuation { continuation in
