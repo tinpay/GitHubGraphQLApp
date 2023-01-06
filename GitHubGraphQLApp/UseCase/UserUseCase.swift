@@ -6,12 +6,12 @@
 //
 import Foundation
 import GitHubSchema
-protocol GitHubUserUseCaseProtocol {
+protocol UserUseCaseProtocol {
     func fetch() async throws -> User
 }
 
-class GitHubUserUseCase: GitHubUserUseCaseProtocol {
-    static let shared = GitHubUserUseCase()
+class UserUseCase: UserUseCaseProtocol {
+    static let shared = UserUseCase()
 
     func fetch() async throws -> User {
         try await withCheckedThrowingContinuation { continuation in

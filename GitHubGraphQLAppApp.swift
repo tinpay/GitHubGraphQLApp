@@ -15,7 +15,7 @@ struct GitHubGraphQLAppApp: App {
             HomeView(store:
                         Store(
                             initialState: Home.State(),
-                            reducer: Home(gitHubUserUseCase: GitHubUserUseCase.shared, gitHubViewerUseCase: GitHubViewerUseCase.shared)
+                            reducer: Home(gitHubUserUseCase: UserUseCase.shared, gitHubViewerUseCase: ViewerUseCase.shared)
                         )
             )
         }

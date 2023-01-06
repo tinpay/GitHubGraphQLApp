@@ -19,11 +19,11 @@
 		2E6A13D5294FEB5400F4E6C5 /* GitHubGraphQLAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13D4294FEB5400F4E6C5 /* GitHubGraphQLAppUITestsLaunchTests.swift */; };
 		2EB1649A2951590100550874 /* GitHubSchema in Frameworks */ = {isa = PBXBuildFile; productRef = 2EB164992951590100550874 /* GitHubSchema */; };
 		2EEF91A229557FC5002BEBF1 /* Viewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF91A129557FC5002BEBF1 /* Viewer.swift */; };
-		2EEF91A5295580E2002BEBF1 /* GitHubViewerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF91A4295580E2002BEBF1 /* GitHubViewerUseCase.swift */; };
+		2EEF91A5295580E2002BEBF1 /* ViewerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF91A4295580E2002BEBF1 /* ViewerUseCase.swift */; };
 		2EEF91A729595772002BEBF1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF91A629595772002BEBF1 /* API.swift */; };
 		2EEF91AA295959C9002BEBF1 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2EEF91A9295959C9002BEBF1 /* ComposableArchitecture */; };
 		2EEF91AC295959C9002BEBF1 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2EEF91AB295959C9002BEBF1 /* Dependencies */; };
-		2EEF91AE29600E9B002BEBF1 /* GitHubUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF91AD29600E9B002BEBF1 /* GitHubUserUseCase.swift */; };
+		2EEF91AE29600E9B002BEBF1 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF91AD29600E9B002BEBF1 /* UserUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +58,9 @@
 		2E6A13D4294FEB5400F4E6C5 /* GitHubGraphQLAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubGraphQLAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2EA966732951583C0060950D /* GitHubSchema */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GitHubSchema; path = GitHubGraphQLApp/API/GitHubSchema; sourceTree = "<group>"; };
 		2EEF91A129557FC5002BEBF1 /* Viewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewer.swift; sourceTree = "<group>"; };
-		2EEF91A4295580E2002BEBF1 /* GitHubViewerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubViewerUseCase.swift; sourceTree = "<group>"; };
+		2EEF91A4295580E2002BEBF1 /* ViewerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerUseCase.swift; sourceTree = "<group>"; };
 		2EEF91A629595772002BEBF1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		2EEF91AD29600E9B002BEBF1 /* GitHubUserUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubUserUseCase.swift; sourceTree = "<group>"; };
+		2EEF91AD29600E9B002BEBF1 /* UserUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +181,8 @@
 		2EEF91A3295580D1002BEBF1 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				2EEF91AD29600E9B002BEBF1 /* GitHubUserUseCase.swift */,
-				2EEF91A4295580E2002BEBF1 /* GitHubViewerUseCase.swift */,
+				2EEF91AD29600E9B002BEBF1 /* UserUseCase.swift */,
+				2EEF91A4295580E2002BEBF1 /* ViewerUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -336,12 +336,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E6A13BA294FEB4F00F4E6C5 /* HomeView.swift in Sources */,
-				2EEF91A5295580E2002BEBF1 /* GitHubViewerUseCase.swift in Sources */,
+				2EEF91A5295580E2002BEBF1 /* ViewerUseCase.swift in Sources */,
 				2E6A13B8294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift in Sources */,
 				2E1DB56129650178004D8614 /* Repository.swift in Sources */,
 				2EEF91A229557FC5002BEBF1 /* Viewer.swift in Sources */,
 				2EEF91A729595772002BEBF1 /* API.swift in Sources */,
-				2EEF91AE29600E9B002BEBF1 /* GitHubUserUseCase.swift in Sources */,
+				2EEF91AE29600E9B002BEBF1 /* UserUseCase.swift in Sources */,
 				2E1DB55F29650155004D8614 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

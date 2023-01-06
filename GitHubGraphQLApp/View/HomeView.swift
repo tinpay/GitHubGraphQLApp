@@ -10,8 +10,8 @@ import SwiftUI
 import GitHubSchema
 
 struct Home: ReducerProtocol {
-    let gitHubUserUseCase: GitHubUserUseCaseProtocol
-    let gitHubViewerUseCase: GitHubViewerUseCaseProtocol
+    let gitHubUserUseCase: UserUseCaseProtocol
+    let gitHubViewerUseCase: ViewerUseCaseProtocol
 
 
     struct State: Equatable {
@@ -105,7 +105,7 @@ struct ContentView_Previews: PreviewProvider {
         )
     }
     
-    private class GitHubViewerUseCaseMock: GitHubViewerUseCaseProtocol {
+    private class GitHubViewerUseCaseMock: ViewerUseCaseProtocol {
         func fetch() async throws -> Viewer {
             return Viewer(id: "",
                                 name: "Preview_tinpay",
@@ -116,7 +116,7 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
     
-    private class GitHubUserUseCaseMock: GitHubUserUseCaseProtocol {
+    private class GitHubUserUseCaseMock: UserUseCaseProtocol {
         func fetch() async throws -> User {
             return User(name: "test",
                         repositories: [
