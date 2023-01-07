@@ -10,6 +10,7 @@
 		2E10CCDB29501EFD00708DAE /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 2E10CCDA29501EFD00708DAE /* Apollo */; };
 		2E1DB55F29650155004D8614 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1DB55E29650155004D8614 /* User.swift */; };
 		2E1DB56129650178004D8614 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1DB56029650178004D8614 /* Repository.swift */; };
+		2E30373529686A7600701E04 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30373429686A7600701E04 /* RepositoryView.swift */; };
 		2E6A13B8294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13B7294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift */; };
 		2E6A13BA294FEB4F00F4E6C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */; };
 		2E6A13BC294FEB5200F4E6C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6A13BB294FEB5200F4E6C5 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		2E1DB55E29650155004D8614 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2E1DB56029650178004D8614 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		2E30373429686A7600701E04 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
 		2E6A13B4294FEB4F00F4E6C5 /* GitHubGraphQLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubGraphQLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6A13B7294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubGraphQLAppApp.swift; sourceTree = "<group>"; };
 		2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */,
+				2E30373429686A7600701E04 /* RepositoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				2E6A13B8294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift in Sources */,
 				2E1DB56129650178004D8614 /* Repository.swift in Sources */,
 				2EEF91A229557FC5002BEBF1 /* Viewer.swift in Sources */,
+				2E30373529686A7600701E04 /* RepositoryView.swift in Sources */,
 				2EEF91A729595772002BEBF1 /* API.swift in Sources */,
 				2EEF91AE29600E9B002BEBF1 /* UserUseCase.swift in Sources */,
 				2E1DB55F29650155004D8614 /* User.swift in Sources */,
