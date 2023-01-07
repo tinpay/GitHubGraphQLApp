@@ -63,27 +63,33 @@ struct HomeView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             
-            VStack(spacing: 0) {
-                AsyncImage(url: viewStore.avatarUrl) { image in
-                    image.resizable()
-                        .frame(width: 48,
-                                height: 48)
-                        .scaledToFit()
-                        .clipShape(Circle())
-                } placeholder: {
-                    Image(systemName: "")
-                }
-                
-                Text(viewStore.name)
-                
-                List {
-                    if let user = viewStore.user,
-                       let repositories = user.repositories {
-                        ForEach(repositories , id: \.self) { repository in
-                            Text(repository.name )
+            NavigationStack {
+                VStack(spacing: 0) {
+                    AsyncImage(url: viewStore.avatarUrl) { image in
+                        image.resizable()
+                            .frame(width: 48,
+                                    height: 48)
+                            .scaledToFit()
+                            .clipShape(Circle())
+                    } placeholder: {
+                        Image(systemName: "")
+                    }
+                    
+                    Text(viewStore.name)
+                    
+                    List {
+                        if let user = viewStore.user,
+                           let repositories = user.repositories {
+                            ForEach(repositories , id: \.self) { repository in
+                                NavigationLink {
+                                    RepositoryView(repository: repository)
+                                } label: {
+                                    Text(repository.name)
+                                }
+                            }
                         }
                     }
-                }
+                }.navigationTitle(Text("GitHub Repositories"))
             }
             .onAppear {
                 Task {
