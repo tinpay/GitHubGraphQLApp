@@ -26,7 +26,7 @@ class RepositoryUseCase: RepositoryUseCaseProtocol {
                         continuation.resume(returning: nil)
                     }
                 case .failure(let error):
-                    print(error)
+                    continuation.resume(throwing: error)
                 }
             }
         }
