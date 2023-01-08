@@ -33,7 +33,7 @@ class UserUseCase: UserUseCaseProtocol {
                     
 
                 case .failure(let error):
-                    print(error)
+                    continuation.resume(throwing: error)
                 }
             }
         }

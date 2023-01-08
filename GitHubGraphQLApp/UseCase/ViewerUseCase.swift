@@ -29,7 +29,7 @@ class ViewerUseCase: ViewerUseCaseProtocol {
                         continuation.resume(returning: githubViewer)
                     }
                 case .failure(let error):
-                    print(error)
+                    continuation.resume(throwing: error)
                 }
             }
         }
