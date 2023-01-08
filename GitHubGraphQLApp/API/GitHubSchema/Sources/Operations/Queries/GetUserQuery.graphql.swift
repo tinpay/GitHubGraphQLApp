@@ -11,6 +11,7 @@ public class GetUserQuery: GraphQLQuery {
       query GetUser {
         user(login: "tinpay") {
           __typename
+          login
           name
           url
           repositories(last: 20) {
@@ -53,11 +54,14 @@ public class GetUserQuery: GraphQLQuery {
 
       public static var __parentType: ParentType { GitHubSchema.Objects.User }
       public static var __selections: [Selection] { [
+        .field("login", String.self),
         .field("name", String?.self),
         .field("url", URI.self),
         .field("repositories", Repositories.self, arguments: ["last": 20]),
       ] }
 
+      /// The username used to login.
+      public var login: String { __data["login"] }
       /// The user's public profile name.
       public var name: String? { __data["name"] }
       /// The HTTP URL for this user

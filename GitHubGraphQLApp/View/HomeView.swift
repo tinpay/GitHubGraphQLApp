@@ -82,7 +82,10 @@ struct HomeView: View {
                            let repositories = user.repositories {
                             ForEach(repositories , id: \.self) { repository in
                                 NavigationLink {
-                                    RepositoryView(repository: repository)
+                                    if let owner = user.login,
+                                          let name = repository.name {
+                                        RepositoryView(owner: owner , name: name)
+                                    }
                                 } label: {
                                     Text(repository.name)
                                 }
@@ -124,10 +127,10 @@ struct ContentView_Previews: PreviewProvider {
     
     private class GitHubUserUseCaseMock: UserUseCaseProtocol {
         func fetch() async throws -> User {
-            return User(name: "test",
+            return User(login: "tinpay", name: "test",
                         repositories: [
-                            Repository(name: "sample1"),
-                            Repository(name: "sample2")
+                            Repository(name: "sample1", url: URL(string: "https://www.yahoo.co.jp")!),
+                            Repository(name: "sample2", url: URL(string: "https://www.yahoo.co.jp")!)
                             ])
         }
     }

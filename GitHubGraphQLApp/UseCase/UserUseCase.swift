@@ -19,12 +19,15 @@ class UserUseCase: UserUseCaseProtocol {
             API.shared.apollo.fetch(query: GetUserQuery()) { result in
                 switch result {
                 case.success(let result):
-                    if let user = result.data?.user {
-                        let repositories = user.repositories.nodes?.compactMap({ node in
-                            Repository(name: node?.name ?? "")
-                        })
-                        let user = User(name: user.name,
-                                        repositories: repositories ?? [])
+                    if let userResult = result.data?.user,
+                        let nodes = userResult.repositories.nodes {
+                        let repositories = nodes
+                            .compactMap { $0 }
+                            .map { node in
+                                Repository(name: node.name, url: URL(string: node.url)!)
+                            }
+                        let user = User(login: userResult.login, name: userResult.name,
+                                        repositories: repositories )
                         continuation.resume(returning: user)
                     }
                     

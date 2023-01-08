@@ -6,6 +6,7 @@
 //
 
 struct User: Equatable {
+    let login: String
     let name: String?
     let repositories: [Repository]
     
