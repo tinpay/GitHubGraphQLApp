@@ -11,6 +11,8 @@
 		2E1DB55F29650155004D8614 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1DB55E29650155004D8614 /* User.swift */; };
 		2E1DB56129650178004D8614 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1DB56029650178004D8614 /* Repository.swift */; };
 		2E30373529686A7600701E04 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30373429686A7600701E04 /* RepositoryView.swift */; };
+		2E303737296A7C1800701E04 /* query.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 2E303736296A7C1800701E04 /* query.graphql */; };
+		2E303739296A7F0300701E04 /* RepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E303738296A7F0300701E04 /* RepositoryUseCase.swift */; };
 		2E6A13B8294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13B7294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift */; };
 		2E6A13BA294FEB4F00F4E6C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */; };
 		2E6A13BC294FEB5200F4E6C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6A13BB294FEB5200F4E6C5 /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		2E1DB55E29650155004D8614 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2E1DB56029650178004D8614 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		2E30373429686A7600701E04 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
+		2E303736296A7C1800701E04 /* query.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = query.graphql; sourceTree = "<group>"; };
+		2E303738296A7F0300701E04 /* RepositoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryUseCase.swift; sourceTree = "<group>"; };
 		2E6A13B4294FEB4F00F4E6C5 /* GitHubGraphQLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubGraphQLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6A13B7294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubGraphQLAppApp.swift; sourceTree = "<group>"; };
 		2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 		2E10CCB1295011C100708DAE /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2E303736296A7C1800701E04 /* query.graphql */,
 				2EEF91A629595772002BEBF1 /* API.swift */,
 			);
 			path = API;
@@ -185,6 +190,7 @@
 			children = (
 				2EEF91AD29600E9B002BEBF1 /* UserUseCase.swift */,
 				2EEF91A4295580E2002BEBF1 /* ViewerUseCase.swift */,
+				2E303738296A7F0300701E04 /* RepositoryUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E303737296A7C1800701E04 /* query.graphql in Resources */,
 				2E6A13BF294FEB5200F4E6C5 /* Preview Assets.xcassets in Resources */,
 				2E6A13BC294FEB5200F4E6C5 /* Assets.xcassets in Resources */,
 			);
@@ -347,6 +354,7 @@
 				2EEF91A729595772002BEBF1 /* API.swift in Sources */,
 				2EEF91AE29600E9B002BEBF1 /* UserUseCase.swift in Sources */,
 				2E1DB55F29650155004D8614 /* User.swift in Sources */,
+				2E303739296A7F0300701E04 /* RepositoryUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

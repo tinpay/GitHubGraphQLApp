@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct RepositoryView: View {
-    let repository: Repository
+    let owner: String
+    let name: String
+    
+    @State private var repository: Repository?
+    
     var body: some View {
-        Text(repository.name)
+        VStack {
+            Text(repository?.name ?? "")
+            Text(repository?.url.absoluteString ?? "")
+        }
+        .onAppear {
+            Task {
+                repository = try? await RepositoryUseCase.shared.fetch(owner: owner, name: name)
+            }
+        }
     }
 }
 
 struct RepositoryView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoryView(repository: Repository(name: "repo"))
+        RepositoryView(owner: "b", name: "a")
     }
 }

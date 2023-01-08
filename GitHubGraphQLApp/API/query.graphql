@@ -10,6 +10,7 @@ query ShowViewer {
 
 query GetUser{ 
   user(login: "tinpay") {
+      login
       name
       url
       repositories(last: 20) {
@@ -22,5 +23,12 @@ query GetUser{
               url
           }
       }
+  }
+}
+
+query GetRepository($owner: String!, $name: String!){
+  repository(owner: $owner, name: $name) {
+    name
+    url
   }
 }
