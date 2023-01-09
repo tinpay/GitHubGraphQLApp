@@ -7,16 +7,16 @@
 import Foundation
 import GitHubSchema
 protocol UserUseCaseProtocol {
-    func fetch() async throws -> User
+    func fetch(login: String) async throws -> User
 }
 
 class UserUseCase: UserUseCaseProtocol {
     static let shared = UserUseCase()
 
-    func fetch() async throws -> User {
+    func fetch(login: String) async throws -> User {
         try await withCheckedThrowingContinuation { continuation in
             print("UserUseCase fetch")
-            API.shared.apollo.fetch(query: GetUserQuery()) { result in
+            API.shared.apollo.fetch(query: GetUserQuery(login: login)) { result in
                 switch result {
                 case.success(let result):
                     if let userResult = result.data?.user,
@@ -24,7 +24,7 @@ class UserUseCase: UserUseCaseProtocol {
                         let repositories = nodes
                             .compactMap { $0 }
                             .map { node in
-                                Repository(name: node.name, url: URL(string: node.url)!)
+                                Repository(id: node.id, name: node.name, url: URL(string: node.url)!)
                             }
                         let user = User(login: userResult.login, name: userResult.name,
                                         repositories: repositories )

@@ -8,14 +8,15 @@ query ShowViewer {
   }
 }
 
-query GetUser{ 
-  user(login: "tinpay") {
+query GetUser($login: String!){
+  user(login: $login) {
       login
       name
       url
       repositories(last: 20) {
           totalCount
           nodes {
+              id
               name
               description
               createdAt
@@ -28,6 +29,7 @@ query GetUser{
 
 query GetRepository($owner: String!, $name: String!){
   repository(owner: $owner, name: $name) {
+    id
     name
     url
   }

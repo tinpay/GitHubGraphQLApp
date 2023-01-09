@@ -34,7 +34,7 @@ struct Home: ReducerProtocol {
             return .task {
                 print("start")
                 async let gitHubViewer = try? await self.gitHubViewerUseCase.fetch()
-                async let user = try? await self.gitHubUserUseCase.fetch()
+                async let user = try? await self.gitHubUserUseCase.fetch(login: "cw-fukui")
                 print("end")
                 return await .setViewerAndRepository(gitHubViewer: gitHubViewer, user: user)
             }.cancellable(id: DelayID.self)
@@ -42,7 +42,7 @@ struct Home: ReducerProtocol {
             return .task {
                 print("start")
                 let gitHubViewer = try? await self.gitHubViewerUseCase.fetch()
-                let user = try? await self.gitHubUserUseCase.fetch()
+                let user = try? await self.gitHubUserUseCase.fetch(login: "cw-fukui")
                 print("end")
                 return .setViewerAndRepository(gitHubViewer: gitHubViewer, user: user)
             }.cancellable(id: DelayID.self)
@@ -84,7 +84,7 @@ struct HomeView: View {
                                 NavigationLink {
                                     if let owner = user.login,
                                           let name = repository.name {
-                                        RepositoryView(owner: owner , name: name)
+                                        RepositoryView(id: repository.id, owner: owner , name: name)
                                     }
                                 } label: {
                                     Text(repository.name)
@@ -126,11 +126,11 @@ struct ContentView_Previews: PreviewProvider {
     }
     
     private class GitHubUserUseCaseMock: UserUseCaseProtocol {
-        func fetch() async throws -> User {
+        func fetch(login: String) async throws -> User {
             return User(login: "tinpay", name: "test",
                         repositories: [
-                            Repository(name: "sample1", url: URL(string: "https://www.yahoo.co.jp")!),
-                            Repository(name: "sample2", url: URL(string: "https://www.yahoo.co.jp")!)
+                            Repository(id: "a", name: "sample1", url: URL(string: "https://www.yahoo.co.jp")!),
+                            Repository(id: "b", name: "sample2", url: URL(string: "https://www.yahoo.co.jp")!)
                             ])
         }
     }

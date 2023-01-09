@@ -11,6 +11,7 @@ public class GetRepositoryQuery: GraphQLQuery {
       query GetRepository($owner: String!, $name: String!) {
         repository(owner: $owner, name: $name) {
           __typename
+          id
           name
           url
         }
@@ -58,10 +59,12 @@ public class GetRepositoryQuery: GraphQLQuery {
 
       public static var __parentType: ParentType { GitHubSchema.Objects.Repository }
       public static var __selections: [Selection] { [
+        .field("id", ID.self),
         .field("name", String.self),
         .field("url", URI.self),
       ] }
 
+      public var id: ID { __data["id"] }
       /// The name of the repository.
       public var name: String { __data["name"] }
       /// The HTTP URL for this repository
