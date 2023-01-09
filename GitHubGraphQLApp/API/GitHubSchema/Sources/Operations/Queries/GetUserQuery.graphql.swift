@@ -8,8 +8,8 @@ public class GetUserQuery: GraphQLQuery {
   public static let document: ApolloAPI.DocumentType = .notPersisted(
     definition: .init(
       """
-      query GetUser {
-        user(login: "tinpay") {
+      query GetUser($login: String!) {
+        user(login: $login) {
           __typename
           login
           name
@@ -19,6 +19,7 @@ public class GetUserQuery: GraphQLQuery {
             totalCount
             nodes {
               __typename
+              id
               name
               description
               createdAt
@@ -31,7 +32,13 @@ public class GetUserQuery: GraphQLQuery {
       """
     ))
 
-  public init() {}
+  public var login: String
+
+  public init(login: String) {
+    self.login = login
+  }
+
+  public var __variables: Variables? { ["login": login] }
 
   public struct Data: GitHubSchema.SelectionSet {
     public let __data: DataDict
@@ -39,7 +46,7 @@ public class GetUserQuery: GraphQLQuery {
 
     public static var __parentType: ParentType { GitHubSchema.Objects.Query }
     public static var __selections: [Selection] { [
-      .field("user", User?.self, arguments: ["login": "tinpay"]),
+      .field("user", User?.self, arguments: ["login": .variable("login")]),
     ] }
 
     /// Lookup a user by login.
@@ -96,6 +103,7 @@ public class GetUserQuery: GraphQLQuery {
 
           public static var __parentType: ParentType { GitHubSchema.Objects.Repository }
           public static var __selections: [Selection] { [
+            .field("id", ID.self),
             .field("name", String.self),
             .field("description", String?.self),
             .field("createdAt", DateTime.self),
@@ -103,6 +111,7 @@ public class GetUserQuery: GraphQLQuery {
             .field("url", URI.self),
           ] }
 
+          public var id: ID { __data["id"] }
           /// The name of the repository.
           public var name: String { __data["name"] }
           /// The description of the repository.

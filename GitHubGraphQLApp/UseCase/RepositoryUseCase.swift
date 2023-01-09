@@ -9,6 +9,7 @@ import Foundation
 import GitHubSchema
 protocol RepositoryUseCaseProtocol {
     func fetch(owner: String, name: String) async throws -> Repository?
+    func createIssue(repositoryId: String) async throws -> Void
 }
 
 class RepositoryUseCase: RepositoryUseCaseProtocol {
@@ -21,7 +22,7 @@ class RepositoryUseCase: RepositoryUseCaseProtocol {
                 case.success(let result):
                     if let repository = result.data?.repository,
                        let url = URL(string: repository.url){
-                        continuation.resume(returning: Repository(name: repository.name, url: url))
+                        continuation.resume(returning: Repository(id: repository.id, name: repository.name, url: url))
                     } else {
                         continuation.resume(returning: nil)
                     }
@@ -31,4 +32,11 @@ class RepositoryUseCase: RepositoryUseCaseProtocol {
             }
         }
     }
+    
+    func createIssue(repositoryId: String) async throws -> Void {
+        API.shared.apollo.perform(mutation: CreateIssueMutation(repositoryId: ID(repositoryId))) { result in
+            print(result)
+        }
+    }
+    
 }

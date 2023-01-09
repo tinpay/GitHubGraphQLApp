@@ -258,6 +258,8 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "VerifiableDomain": return GitHubSchema.Objects.VerifiableDomain
     case "Workflow": return GitHubSchema.Objects.Workflow
     case "RepositoryConnection": return GitHubSchema.Objects.RepositoryConnection
+    case "Mutation": return GitHubSchema.Objects.Mutation
+    case "CreateIssuePayload": return GitHubSchema.Objects.CreateIssuePayload
     default: return nil
     }
   }

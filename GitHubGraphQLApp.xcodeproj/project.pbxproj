@@ -13,6 +13,7 @@
 		2E30373529686A7600701E04 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30373429686A7600701E04 /* RepositoryView.swift */; };
 		2E303737296A7C1800701E04 /* query.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 2E303736296A7C1800701E04 /* query.graphql */; };
 		2E303739296A7F0300701E04 /* RepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E303738296A7F0300701E04 /* RepositoryUseCase.swift */; };
+		2E30373B296B955E00701E04 /* mutation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 2E30373A296B955E00701E04 /* mutation.graphql */; };
 		2E6A13B8294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13B7294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift */; };
 		2E6A13BA294FEB4F00F4E6C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */; };
 		2E6A13BC294FEB5200F4E6C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6A13BB294FEB5200F4E6C5 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		2E30373429686A7600701E04 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
 		2E303736296A7C1800701E04 /* query.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = query.graphql; sourceTree = "<group>"; };
 		2E303738296A7F0300701E04 /* RepositoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryUseCase.swift; sourceTree = "<group>"; };
+		2E30373A296B955E00701E04 /* mutation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mutation.graphql; sourceTree = "<group>"; };
 		2E6A13B4294FEB4F00F4E6C5 /* GitHubGraphQLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubGraphQLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6A13B7294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubGraphQLAppApp.swift; sourceTree = "<group>"; };
 		2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		2E10CCB1295011C100708DAE /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2E30373A296B955E00701E04 /* mutation.graphql */,
 				2E303736296A7C1800701E04 /* query.graphql */,
 				2EEF91A629595772002BEBF1 /* API.swift */,
 			);
@@ -320,6 +323,7 @@
 			files = (
 				2E303737296A7C1800701E04 /* query.graphql in Resources */,
 				2E6A13BF294FEB5200F4E6C5 /* Preview Assets.xcassets in Resources */,
+				2E30373B296B955E00701E04 /* mutation.graphql in Resources */,
 				2E6A13BC294FEB5200F4E6C5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

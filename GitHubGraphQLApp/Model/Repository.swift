@@ -7,6 +7,7 @@
 import Foundation
 
 struct Repository: Equatable, Hashable {
+    let id: String
     let name: String
     let url: URL
 }
