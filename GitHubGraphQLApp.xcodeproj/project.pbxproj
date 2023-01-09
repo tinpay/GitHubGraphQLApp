@@ -14,6 +14,7 @@
 		2E303737296A7C1800701E04 /* query.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 2E303736296A7C1800701E04 /* query.graphql */; };
 		2E303739296A7F0300701E04 /* RepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E303738296A7F0300701E04 /* RepositoryUseCase.swift */; };
 		2E30373B296B955E00701E04 /* mutation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 2E30373A296B955E00701E04 /* mutation.graphql */; };
+		2E30373D296B9E7A00701E04 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30373C296B9E7A00701E04 /* SafariView.swift */; };
 		2E6A13B8294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13B7294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift */; };
 		2E6A13BA294FEB4F00F4E6C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */; };
 		2E6A13BC294FEB5200F4E6C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6A13BB294FEB5200F4E6C5 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		2E303736296A7C1800701E04 /* query.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = query.graphql; sourceTree = "<group>"; };
 		2E303738296A7F0300701E04 /* RepositoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryUseCase.swift; sourceTree = "<group>"; };
 		2E30373A296B955E00701E04 /* mutation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mutation.graphql; sourceTree = "<group>"; };
+		2E30373C296B9E7A00701E04 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		2E6A13B4294FEB4F00F4E6C5 /* GitHubGraphQLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubGraphQLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6A13B7294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubGraphQLAppApp.swift; sourceTree = "<group>"; };
 		2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				2E6A13B9294FEB4F00F4E6C5 /* HomeView.swift */,
 				2E30373429686A7600701E04 /* RepositoryView.swift */,
+				2E30373C296B9E7A00701E04 /* SafariView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E6A13BA294FEB4F00F4E6C5 /* HomeView.swift in Sources */,
+				2E30373D296B9E7A00701E04 /* SafariView.swift in Sources */,
 				2EEF91A5295580E2002BEBF1 /* ViewerUseCase.swift in Sources */,
 				2E6A13B8294FEB4F00F4E6C5 /* GitHubGraphQLAppApp.swift in Sources */,
 				2E1DB56129650178004D8614 /* Repository.swift in Sources */,
