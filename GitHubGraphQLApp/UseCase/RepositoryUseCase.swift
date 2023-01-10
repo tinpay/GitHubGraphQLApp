@@ -9,7 +9,7 @@ import Foundation
 import GitHubSchema
 protocol RepositoryUseCaseProtocol {
     func fetch(owner: String, name: String) async throws -> Repository?
-    func createIssue(repositoryId: String) async throws -> Void
+    func createIssue(repositoryId: String, title: String) async throws -> Void
 }
 
 class RepositoryUseCase: RepositoryUseCaseProtocol {
@@ -33,10 +33,11 @@ class RepositoryUseCase: RepositoryUseCaseProtocol {
         }
     }
     
-    func createIssue(repositoryId: String) async throws -> Void {
-        API.shared.apollo.perform(mutation: CreateIssueMutation(repositoryId: ID(repositoryId))) { result in
-            print(result)
+    func createIssue(repositoryId: String, title: String) async throws -> Void {
+        return try await withCheckedThrowingContinuation { continuation in
+            API.shared.apollo.perform(mutation: CreateIssueMutation(repositoryId: ID(repositoryId), title: title)) { result in
+                continuation.resume()
+            }
         }
     }
-    
 }
