@@ -1,5 +1,5 @@
-mutation createIssue($repositoryId: ID!) {
-  createIssue(input:{title: "Create issue from GraphQL", repositoryId :$repositoryId}) {
+mutation createIssue($repositoryId: ID!, $title: String!) {
+  createIssue(input:{title: $title, repositoryId :$repositoryId}) {
     issue {
       id
     }

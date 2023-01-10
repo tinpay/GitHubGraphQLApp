@@ -12,6 +12,7 @@ struct RepositoryView: View {
     let owner: String
     let name: String
     
+    @State private var comment = ""
     @State private var repository: Repository?
     @State private var url: URL?
 
@@ -28,10 +29,12 @@ struct RepositoryView: View {
                     }
             }
             Spacer().frame(height: 100)
+            TextField("コメントを入力してください", text: $comment)
             Button {
                 Task {
                     do {
-                        try await RepositoryUseCase.shared.createIssue(repositoryId: id)
+                        try await RepositoryUseCase.shared.createIssue(repositoryId: id, title: comment)
+                        comment = ""
                     } catch {
                         print(error)
                     }

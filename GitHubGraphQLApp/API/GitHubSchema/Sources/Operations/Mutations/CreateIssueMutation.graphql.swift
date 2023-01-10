@@ -8,10 +8,8 @@ public class CreateIssueMutation: GraphQLMutation {
   public static let document: ApolloAPI.DocumentType = .notPersisted(
     definition: .init(
       """
-      mutation createIssue($repositoryId: ID!) {
-        createIssue(
-          input: {title: "Create issue from GraphQL", repositoryId: $repositoryId}
-        ) {
+      mutation createIssue($repositoryId: ID!, $title: String!) {
+        createIssue(input: {title: $title, repositoryId: $repositoryId}) {
           __typename
           issue {
             __typename
@@ -23,12 +21,20 @@ public class CreateIssueMutation: GraphQLMutation {
     ))
 
   public var repositoryId: ID
+  public var title: String
 
-  public init(repositoryId: ID) {
+  public init(
+    repositoryId: ID,
+    title: String
+  ) {
     self.repositoryId = repositoryId
+    self.title = title
   }
 
-  public var __variables: Variables? { ["repositoryId": repositoryId] }
+  public var __variables: Variables? { [
+    "repositoryId": repositoryId,
+    "title": title
+  ] }
 
   public struct Data: GitHubSchema.SelectionSet {
     public let __data: DataDict
@@ -37,7 +43,7 @@ public class CreateIssueMutation: GraphQLMutation {
     public static var __parentType: ParentType { GitHubSchema.Objects.Mutation }
     public static var __selections: [Selection] { [
       .field("createIssue", CreateIssue?.self, arguments: ["input": [
-        "title": "Create issue from GraphQL",
+        "title": .variable("title"),
         "repositoryId": .variable("repositoryId")
       ]]),
     ] }
