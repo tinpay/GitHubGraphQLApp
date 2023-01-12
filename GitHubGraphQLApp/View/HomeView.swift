@@ -84,7 +84,14 @@ struct HomeView: View {
                                 NavigationLink {
                                     if let owner = user.login,
                                           let name = repository.name {
-                                        RepositoryView(id: repository.id, owner: owner , name: name)
+                                        RepositoryView(
+                                            store: Store(
+                                                initialState: RepositoryViewState.State(),
+                                                reducer: RepositoryViewState(
+                                                    repositoryUseCase: RepositoryUseCase.shared)),
+                                            repositoryID: repository.id,
+                                            owner: owner ,
+                                            name: name)
                                     }
                                 } label: {
                                     Text(repository.name)
