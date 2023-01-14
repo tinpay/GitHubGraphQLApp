@@ -89,6 +89,7 @@ struct RepositoryView: View {
             }
             .onAppear {
                 Task {
+                    viewStore.send(.initialize(owner: owner, name: name))
                 }
             }
             .sheet(isPresented: .init(get: {
