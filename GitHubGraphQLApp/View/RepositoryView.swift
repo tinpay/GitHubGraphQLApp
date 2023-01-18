@@ -13,8 +13,7 @@ struct RepositoryViewState: ReducerProtocol {
     
     struct State: Equatable {
         var repository: Repository?
-       var comment: String?
-
+        var comment: String?
     }
     
     enum Action: Equatable {
@@ -75,7 +74,7 @@ struct RepositoryView: View {
                         }
                     }
                 Spacer().frame(height: 100)
-//                TextField("コメントを入力してください", text: viewStore.state.$comment)
+                TextField("コメントを入力してください", text: viewStore.state.$comment)
                 Button {
                     Task {
                         if let comment = viewStore.state.comment {
